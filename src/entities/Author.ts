@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn, Relation,} from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, Relation,} from 'typeorm'
 import { Book } from "./Book";
 
 @Entity()

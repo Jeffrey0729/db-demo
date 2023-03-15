@@ -1,6 +1,8 @@
 import './config';
 import 'express-async-errors';
 import express, { Express } from 'express';
+import { addNewBook } from './controllers/BookController';
+import { addNewReview } from './controllers/ReviewController';
 
 import session from 'express-session';
 import connectSqlite3 from 'connect-sqlite3';
@@ -38,6 +40,11 @@ app.post('/api/users/profileViews/reset', resetProfileViews); // Log in to an ac
 app.get('/api/users', getAllUserProfiles);
 app.get('/api/users/:userId', getUserProfileData);
 app.post('/api/users/:userId/email', updateUserEmail);
+
+app.post('/api/addNewBook');
+app.post('/api/books/:bookId/reviews', addNewReview);
+app.get('/api/books/:bookId/reviews', addReviewsForBook);
+
 
 app.listen(PORT, () => {
   console.log(`Listening at http://localhost:${PORT}`);
